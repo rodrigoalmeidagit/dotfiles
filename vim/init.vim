@@ -39,6 +39,13 @@ call plug#begin()
   " Final da instalação do fzf
   " ===
 
+  "File Manager
+  Plug 'preservim/nerdtree'
+
+  "Snippets
+  Plug 'SirVer/ultisnips'
+  Plug 'honza/vim-snippets'
+
   " Adicionar comentários em várias linguagens
   Plug 'tpope/vim-commentary'
 
@@ -65,6 +72,9 @@ call plug#begin()
 
   " Emmet
   Plug 'mattn/emmet-vim'
+
+  " Fechamento de tag HTML
+  Plug 'alvan/vim-closetag'
 
   " Carregar CSV
   Plug 'chrisbra/csv.vim'
@@ -152,7 +162,7 @@ let g:indentLine_showFirstIndentLevel = 1
 let g:vim_jsx_pretty_highlight_close_tag = 1
 let g:vim_jsx_pretty_colorful_config = 0
 
-" Configurações do plugin Airli --------------------------------------------
+" Configurações do plugin Airlie --------------------------------------------
 
 " Permitir fontes Powerline
 let g:airline_powerline_fonts=1
@@ -468,4 +478,4 @@ set backupcopy=yes
 
 iabbrev lenght length
 iabbrev widht width
-iabbrev heigth heightne
+iabbrev heigth heightn
