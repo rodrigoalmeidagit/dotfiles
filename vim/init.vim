@@ -29,6 +29,9 @@ call plug#begin()
   " Suporte para ReScript
   Plug 'rescript-lang/vim-rescript'
 
+  " Suporte para Elixir
+  Plug 'elixir-editors/vim-elixir'
+
   " === 
   " Início da instalação do fzf
   " O fzf serve para fazer buscas no estilo do sublime text, com Ctrl + P
@@ -38,13 +41,6 @@ call plug#begin()
   Plug 'junegunn/fzf.vim'
   " Final da instalação do fzf
   " ===
-
-  "File Manager
-  Plug 'preservim/nerdtree'
-
-  "Snippets
-  Plug 'SirVer/ultisnips'
-  Plug 'honza/vim-snippets'
 
   " Adicionar comentários em várias linguagens
   Plug 'tpope/vim-commentary'
@@ -73,9 +69,6 @@ call plug#begin()
   " Emmet
   Plug 'mattn/emmet-vim'
 
-  " Fechamento de tag HTML
-  Plug 'alvan/vim-closetag'
-
   " Carregar CSV
   Plug 'chrisbra/csv.vim'
 
@@ -101,6 +94,7 @@ colorscheme palenight
 " Tema Airline
 let g:airline_theme='palenight'
 
+
 " Define se a cor usada pelo indentLine vai seguir o tema (0) ou o padrão do
 " indentLine (1), que é cinza
 let g:indentLine_setColors = 1
@@ -113,7 +107,7 @@ let g:indentLine_color_term = 237
 " " Define o tema
 " set termguicolors
 " let ayucolor="mirage"
-" " let ayucolor="dark"
+" let ayucolor="dark"
 " colorscheme ayu
 
 " " Tema Airline
@@ -147,7 +141,7 @@ let g:indentLine_color_term = 237
 " let g:tokyonight_enable_italic = 1
 
 " colorscheme tokyonight
-" let g:airline_theme = "tokyonight"
+" let g:airline_theme = 'tokyonight'
 
 " Configuração do plugin IndentLine ------------------------------------------
 
@@ -160,7 +154,7 @@ let g:indentLine_showFirstIndentLevel = 1
 " Configuração do plugin polyglot para JSX (vim-jsx-pretty) ------------------
 
 let g:vim_jsx_pretty_highlight_close_tag = 1
-let g:vim_jsx_pretty_colorful_config = 0
+let g:vim_jsx_prtty_colorful_config = 0
 
 " Configurações do plugin Airlie --------------------------------------------
 
@@ -180,6 +174,60 @@ let g:comfortable_motion_scroll_down_key = "j"
 let g:comfortable_motion_scroll_up_key = "k"
 
 " Configuração do plugin COC -------------------------------------------------
+
+let g:coc_explorer_global_presets = {
+\   '.vim': {
+\     'root-uri': '~/.vim',
+\   },
+\   'cocConfig': {
+\      'root-uri': '~/.config/coc',
+\   },
+\   'tab': {
+\     'position': 'tab',
+\     'quit-on-open': v:true,
+\   },
+\   'tab:$': {
+\     'position': 'tab:$',
+\     'quit-on-open': v:true,
+\   },
+\   'floating': {
+\     'position': 'floating',
+\     'open-action-strategy': 'sourceWindow',
+\   },
+\   'floatingTop': {
+\     'position': 'floating',
+\     'floating-position': 'center-top',
+\     'open-action-strategy': 'sourceWindow',
+\   },
+\   'floatingLeftside': {
+\     'position': 'floating',
+\     'floating-position': 'left-center',
+\     'floating-width': 50,
+\     'open-action-strategy': 'sourceWindow',
+\   },
+\   'floatingRightside': {
+\     'position': 'floating',
+\     'floating-position': 'right-center',
+\     'floating-width': 50,
+\     'open-action-strategy': 'sourceWindow',
+\   },
+\   'simplify': {
+\     'file-child-template': '[selection | clip | 1] [indent][icon | 1] [filename omitCenter 1]'
+\   },
+\   'buffer': {
+\     'sources': [{'name': 'buffer', 'expand': v:true}]
+\   },
+\ }
+
+" Use preset argument to open it
+nmap <space>ed <Cmd>CocCommand explorer --preset .vim<CR>
+nmap <space>ef <Cmd>CocCommand explorer --preset floating<CR>
+nmap <space>ec <Cmd>CocCommand explorer --preset cocConfig<CR>
+nmap <space>eb <Cmd>CocCommand explorer --preset buffer<CR>
+
+" List all presets
+nmap <space>el <Cmd>CocList explPresets<CR>
+
 
 " GoTo code navigation
 nmap <silent> gd <Plug>(coc-definition)
@@ -228,7 +276,7 @@ inoremap <nowait><expr> <C-b> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(
 
 " Configuração do FZF --------------------------------------------------------
 " Não exibir janela de pré-visualização de conteúdo do arquivo
-let g:fzf_preview_window = []
+" let g:fzf_preview_window = []
 
 " Syntax Highlight e configs default para janela de pré-visualização
 let $FZF_DEFAULT_OPTS="--preview-window 'right:60%' --layout reverse --margin=0,0 --preview 'bat --color=always --style=header,grid --line-range :300 {}'"
@@ -275,17 +323,20 @@ set completeopt+=preview
 
 " Espaços e Tabs -------------------------------------------------------------
 
+" Define gap no fim do arquivo
+set scrolloff=10 
+
 " Define tabs como espaços
 set expandtab
 
 " Número de espaços visuais ao pressionar a tecla TAB
-set tabstop=2
+set tabstop=4
 
 " Número de espaços contados em uma tabulação quando estiver editando
-set softtabstop=2
+set softtabstop=4
 
 " Número de espaços contados em uma tabulação em nova linha
-set shiftwidth=2
+set shiftwidth=4
 
 " UI e Layout ----------------------------------------------------------------
 
@@ -347,6 +398,15 @@ set ignorecase
 " Sobrescreve o `ignorecase` quando houver caracteres em maísuculo na busca 
 set smartcase
 
+" Indentação inteligente 
+set smartindent         
+set autoindent 
+set showtabline=2 
+
+" Better tabbing
+vnoremap < <gv
+vnoremap > >gv
+
 " Define diretório para salvar histórico de `desfazer`
 set undodir=~/.config/nvim/undos
 
@@ -384,6 +444,8 @@ nnoremap <leader><space> :nohlsearch<cr>
 nnoremap <leader>l :set list!<cr>
 
 " Outros atalhos -------------------------------------------------------------
+
+nmap <space>e <Cmd>CocCommand explorer<CR>
 
 " Define o atalho Ctrl + P para utilizar o fzf 
 nnoremap <c-p> :Files<cr>
@@ -478,4 +540,4 @@ set backupcopy=yes
 
 iabbrev lenght length
 iabbrev widht width
-iabbrev heigth heightn
+iabbrev heigth heightne
