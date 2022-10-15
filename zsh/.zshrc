@@ -105,12 +105,11 @@ source $ZSH/oh-my-zsh.sh
 #
 # Example aliases
 alias vim='nvim'
-alias vi='vim'
-alias update='sudo apt update && apt list --upgradable'
-alias upgrade="sudo apt upgrade -y"
-alias l='ls -lah --group-directories-first'
 alias ta='tmux a'
 alias tl='tmux ls'
+alias l='ls -lah --group-directories-first'
+alias update='sudo apt update && apt list --upgradable'
+alias upgrade="sudo apt upgrade -y"
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
