@@ -103,13 +103,24 @@ source $ZSH/oh-my-zsh.sh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
 #
-# Example aliases
+# # Example aliases
+# alias vim='nvim'
+# alias ta='tmux a'
+# alias tl='tmux ls'
+# alias l='ls -lah --group-directories-first'
+# alias update='sudo apt update && apt list --upgradable'
+# alias upgrade="sudo apt upgrade -y"
+alias vi="vim"
 alias vim='nvim'
-alias ta='tmux a'
-alias tl='tmux ls'
-alias l='ls -lah --group-directories-first'
 alias update='sudo apt update && apt list --upgradable'
 alias upgrade="sudo apt upgrade -y"
+alias l='ls -lah --group-directories-first'
+alias ta='tmux a'
+alias tl='tmux ls'
+alias list='comm -23 <(apt-mark showmanual | sort -u) <(gzip -dc /var/log/installer/initial-status.gz | sed -n "s/^Package: //p" | sort -u)'
+alias clean='sudo apt autoclean'
+alias remove='sudo apt autoremove'
+alias nrd='npm run dev'
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
