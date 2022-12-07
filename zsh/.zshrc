@@ -104,48 +104,30 @@ source $ZSH/oh-my-zsh.sh
 # For a full list of active aliases, run `alias`.
 #
 # # Example aliases
-# alias vim='nvim'
 # alias ta='tmux a'
 # alias tl='tmux ls'
-# alias l='ls -lah --group-directories-first'
+
+# # Aliases
+alias vi='vim'
+alias vim='nvim'
+alias update='sudo nala update && nala list --upgradable'
+alias upgrade='sudo nala upgrade -y'
 # alias update='sudo apt update && apt list --upgradable'
 # alias upgrade="sudo apt upgrade -y"
-alias vi="vim"
-alias vim='nvim'
-alias update='sudo apt update && apt list --upgradable'
-alias upgrade="sudo apt upgrade -y"
 alias l='ls -lah --group-directories-first'
-alias ta='tmux a'
-alias tl='tmux ls'
 alias list='comm -23 <(apt-mark showmanual | sort -u) <(gzip -dc /var/log/installer/initial-status.gz | sed -n "s/^Package: //p" | sort -u)'
-alias clean='sudo apt autoclean'
-alias remove='sudo apt autoremove'
+alias clean='sudo nala clean'
+alias remove='sudo nala autoremove'
+# alias clean='sudo apt autoclean'
+# alias remove='sudo apt autoremove'
 alias nrd='npm run dev'
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
-
-#SPACESHIP_PROMPT_ORDER=(
-#  user          # Username section
-#  dir           # Current directory section
-#  host          # Hostname section
-#  git           # Git section (git_branch + git_status)
-#  hg            # Mercurial section (hg_branch  + hg_status)
-#  exec_time     # Execution time
-#  line_sep      # Line break
-#  vi_mode       # Vi-mode indicator
-#  jobs          # Background jobs indicator
-#  exit_code     # Exit code section
-#  char          # Prompt character
-#)
-#SPACESHIP_USER_SHOW=always
-#SPACESHIP_PROMPT_ADD_NEWLINE=false
-#SPACESHIP_CHAR_SYMBOL="❯"
-#SPACESHIP_CHAR_SUFFIX=" "
+alias row='/media/rodrigo/RODRIGO'
+alias b3f='cd ../../../'
+alias myzsh="vi ~/.zshrc"
+alias mytheme='vi ~/.oh-my-zsh/themes'
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-source ~/powerlevel10k/powerlevel10k.zsh-theme
 
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+export PATH=$PATH:~/.cargo/bin:~/Documents/scripts/
