@@ -15,7 +15,7 @@ export ZSH="/home/rodrigo/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="row2"
+ZSH_THEME="dstufft"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -108,8 +108,7 @@ source $ZSH/oh-my-zsh.sh
 # alias tl='tmux ls'
 
 # # Aliases
-alias vi='vim'
-alias vim='nvim'
+alias vi='lvim'
 alias update='sudo nala update && nala list --upgradable'
 alias upgrade='sudo nala upgrade -y'
 # alias update='sudo apt update && apt list --upgradable'
