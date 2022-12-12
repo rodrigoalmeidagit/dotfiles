@@ -124,7 +124,7 @@ alias nrd='npm run dev'
 alias row='/media/rodrigo/RODRIGO'
 alias b3f='cd ../../../'
 alias myzsh="vi ~/.zshrc"
-alias mytheme='vi ~/.oh-my-zsh/themes'
+alias mytheme='vi ~/.oh-my-zsh/themes/dstufft.zsh-theme'
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
